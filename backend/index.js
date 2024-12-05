@@ -4,15 +4,15 @@ const app = express()
 
 app.use(cors())
 var username = "Shankar"
-var password = 123
+var password = "123"
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
 app.post("/login",function(req,res)
 {
-    console.log(req.query.username)
-    if(req.body.username===username && req.body.password==password)
+    console.log(req.body.username)
+    if(req.body.username===username && req.body.password===password)
         {
             res.send(true)
         }
@@ -21,7 +21,4 @@ app.post("/login",function(req,res)
         }
 })
 
-app.listen(5001,function()
-{
-    console.log("server started")
-})
+module.exports = app;
